@@ -1,0 +1,37 @@
+class Box1{
+	int width;
+	int height;
+	int depth;
+}
+public class ClassEx3 {
+
+	public static void main(String[] args) {
+		Box1 mybox1 = new Box1();
+		Box1 mybox2 = new Box1();
+		
+		mybox1.width = 20;
+		mybox1.height = 20;
+		mybox1.depth = 30;
+		
+		mybox2.width = 10;
+		mybox2.height = 20;
+		mybox2.depth = 123;
+		
+		Box1 mybox3 = mybox2;
+		
+		mybox2.width = 1000;
+		mybox2.height = 300;
+		
+		System.out.println("box1 w" +mybox1.width);
+		System.out.println("box1 h" +mybox1.height);
+		System.out.println("box1 d" +mybox1.depth);
+		
+		System.out.println("box2 w" +mybox2.width);
+		System.out.println("box2 h" +mybox2.height);
+		System.out.println("box2 d" +mybox2.depth);
+		
+		System.out.println("box3 w" +mybox3.width);
+		System.out.println("box3 h" +mybox3.height);
+		System.out.println("box3 d" +mybox3.depth);
+}
+}

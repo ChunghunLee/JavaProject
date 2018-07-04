@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+class Sum {
+	protected int sum;
+	Scanner stdin = new Scanner(System.in);
+	protected int n = stdin.nextInt();
+
+	protected int i;
+
+	public void cal(int n) {
+		for (i = 1; i <= n; i++) {
+			sum += i;
+		}
+	}
+}
+
+class OddSum extends Sum{
+	public void Oddcal(int n){
+		for(i=1; i<=n; i+=2)
+		sum+=i;
+		}
+	}
+
+class evenSum extends Sum{
+	public void evencal(int n){
+		for(i=2;i<=n;i+=2)
+			sum+=i;
+	}
+}
+
+
+public class MidEx3 {
+
+	public static void main(String[] args) {
+		Sum ob1 = new Sum();
+		OddSum ob2 = new OddSum();
+		evenSum ob3 = new evenSum();
+	System.out.println("어디까지 더할 것인가");
+
+		System.out.println("전체 합은"+ob1.sum+"이다");
+		System.out.println("홀수 합은"+ob2.sum+"이다");
+		System.out.println("짝수 합은"+ob3.sum+"이다");
+	}
+
+}

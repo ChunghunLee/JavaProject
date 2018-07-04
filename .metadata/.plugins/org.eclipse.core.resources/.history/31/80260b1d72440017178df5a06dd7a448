@@ -1,0 +1,240 @@
+package pack;
+
+import java.util.Random;
+import java.util.*;
+import java.util.Scanner;
+import java.util.Random;
+import java.util.*;
+import java.util.Scanner;
+
+import java.awt.*;
+
+class poker {
+
+	int set[] = new int[14]; // 랜덤카드 14장을 받기위한 배열
+	String shape[][] = new String[2][14]; // 카드모양을 지정하기 위한 배열
+	int num[][] = new int[2][14]; // 카드번호를 지정하기 위한 배열
+	int count[] = new int[2]; // 원페어,투페어 판단 배열
+	int flush[] = new int[2]; // 플러쉬 판단 배열
+	int straight[] = new int[2]; // 스트레이트 판단 배열
+	int shapenum[][] = new int[2][4]; // 플러쉬 판단 배열
+	int countnum[][] = new int[2][14]; // 페어수를 판단하기 위한 배열
+	int winner[] = new int[2]; // 승자,패자를 나누는 배열
+	int temp = 0, n = 0, win = 0, player = 0;
+	String temp_s; // 정렬을 위해 임시로 카드번호를 저장 할 temp, 카드모양을 저장할 temp_s
+	String number = "NA23456789TJQK"; // 카드번호를 불러오기 위한 문자열
+	Random ran = new Random(); // 닌수 생성
+
+	int[] makeset() { // 서로 다른 임의의 수(0~51 를 set 배열에 할당
+		for (int i = 0; i < 14; i++) {
+			set[i] = Math.abs(ran.nextInt() % 52);
+		}
+		for (int i = 0; i < 14; i++)
+			for (int i1 = 0; i1 < 14; i1++)
+				if (set[i] == set[i1] && i != i1)
+					set[i] = Math.abs(ran.nextInt() % 52);
+		return set;
+	}
+
+	int[][] allocset(int set[]) { // 카드패를 7장 씩 나누는 메소드
+		for (int i = 0; i < 7; i++)
+			num[0][i] = set[i];
+		for (int i = 0; i < 7; i++)
+			num[1][i] = set[i + 7];
+		return num;
+	}
+
+	int[][] makeshape(int num[][]) { // 나눈 카드패의 모양을 결정하는 메소드
+		for (int i = 0; i < 2; i++)
+			for (int i1 = 0; i1 < 7; i1++) {
+				if (num[i][i1] >= 0 && num[i][i1] <= 12) {
+					shapenum[i][0]++;
+					shape[i][i1] = "spade";
+				} else if (num[i][i1] >= 13 && num[i][i1] <= 25) {
+					shapenum[i][1]++;
+					shape[i][i1] = "diamond";
+				} else if (num[i][i1] >= 26 && num[i][i1] <= 38) {
+					shapenum[i][2]++;
+					shape[i][i1] = "heart";
+				} else if (num[i][i1] >= 39 && num[i][i1] <= 51) {
+					shapenum[i][3]++;
+					shape[i][i1] = "club";
+				}
+			}
+		return shapenum; // 같은 모양의 패 개수를 반환한다.
+	}
+
+	String[][] returnshape() { // 카드패의 모양을 반환하는 함수
+		return shape;
+	}
+
+	int[][] makenum(int num[][]) { // 나눈 카드패의 카드번호를 결정하는 메소드
+		for (int i = 0; i < 2; i++)
+			for (int i1 = 0; i1 < 7; i1++)
+				if (num[1][i1] >= 0 && num[i][i1] <= 12)
+					num[i][i1] = num[i][i1] + 1;
+				else if (num[i][i1] >= 13 && num[i][i1] <= 25)
+					num[i][i1] = num[i][i1] - 12;
+				else if (num[i][i1] >= 26 && num[i][i1] <= 38)
+					num[i][i1] = num[i][i1] - 25;
+				else if (num[i][i1] >= 39 && num[i][i1] <= 51)
+					num[i][i1] = num[i][i1] - 38;
+		return num;
+	}
+
+	int[][] arrayset(int num[][]) { // 카드 패를 오름차순으로 정렬하는 메소드
+		for (int i = 0; i < 2; i++)
+			for (int i1 = 0; i1 < 6; i1++)
+				for (int i2 = i1; i2 < 6; i2++)
+					if (num[i][i1] > num[i][i2 + 1]) {
+						temp = num[i][i1];
+						num[i][i1] = num[i][i2 + 1];
+						num[i][i2 + 1] = temp;
+						temp_s = shape[i][i1];
+						shape[i][i1] = shape[i][i2 + 1];
+						shape[i][i2 + 1] = temp_s;
+					}
+		returnshape();
+		return num;
+	}
+
+	int[] countset(int num[][]) { // 받은 카드번호에서 페어 수를 측정하는 메소드
+		for (int i = 0; i < 2; i++) {
+			n = 0;
+			for (int i1 = 0; i1 < 6; i1++)
+				for (int i2 = i1; i2 < 6; i2++)
+					if (num[i][i1] == num[i][i2 + 1]) {
+						countnum[i][n++] = num[i][i1];
+						count[i]++;
+					}
+		}
+		return count; // 원페어인지 투페어인지 반환
+	}
+
+	int[] flushcheck(int shapenum[][]) { // 받은 카드모양에서 플러쉬인지 측정하는 메소드
+		for (int i = 0; i < 2; i++)
+			for (int i1 = 0; i1 < 3; i1++)
+				if (shapenum[i][i1] >= 5) {
+					flush[i]++;
+				}
+		return flush; //
+	}
+
+	int[] straightcheck(int num[][]) {
+		for (int i = 0; i < 2; i++) {
+			for (int i1 = 0; i1 < 3; i1++)
+				if (num[i][i1 + 0] + 1 == num[i][i1 + 1] && num[i][i1 + 1] + 1 == num[i][i1 + 2]
+						&& num[i][i1 + 2] + 1 == num[i][i1 + 3] && num[i][i1 + 3] + 1 == num[i][i1 + 4]) {
+					countnum[i][n++] = num[i][i1];
+					straight[i]++;
+				}
+		}
+		return straight;
+	}
+
+	int[] result(int[] count, int[] straight, int[] flush) {
+		for (int i = 0; i < 2; i++) {
+			for (int i1 = 0; i1 < 3; i1++)
+				if (num[i][i1 + 0] == 1 && num[i][i1 + 1] == 10 && num[i][i1 + 2] == 11 && num[i][i1 + 3] == 12
+						&& num[i][i1 + 4] == 13 && shapenum[i][0] >= 5 && flush[i] >= 1) {
+					count[i] = 9;
+					System.out.println("player '" + (i + 1) + "' 족보 : " + "Royal Straight Flush!!");
+				}
+			if (flush[i] >= 1 && straight[i] >= 1) {
+				System.out.println("player '" + (i + 1) + "' 족보 : " + "Straight Flush!!");
+				count[i] = 8;
+			} else if (flush[i] >= 1) {
+				System.out.println("player '" + (i + 1) + "' 족보 : " + "Flush!!");
+				count[i] = 7;
+			} else if (straight[i] >= 1) {
+				System.out.println("player '" + (i + 1) + "' 족보 : " + number.charAt(countnum[i][0]) + " Straight!!");
+				count[i] = 6;
+			} else if (count[i] == 5) {
+				System.out.println("player '" + (i + 1) + "' 족보 : " + number.charAt(countnum[i][0]) + " FourCard!!");
+			} else if (count[i] == 4) {
+				System.out.println("player '" + (i + 1) + "' 족보 : " + number.charAt(countnum[i][0]) + ", "
+						+ number.charAt(countnum[i][1]) + " Full House!!");
+			} else if (count[i] == 3) {
+				System.out.println("player '" + (i + 1) + "' 족보 : " + number.charAt(countnum[i][0]) + " Triple!!");
+			} else if (count[i] == 2) {
+				System.out.println("player '" + (i + 1) + "' 족보 : " + number.charAt(countnum[i][0]) + ", "
+						+ number.charAt(countnum[i][1]) + " Two Pair!!");
+			} else if (count[i] == 1) {
+				System.out.println("player '" + (i + 1) + "' 족보 : " + number.charAt(countnum[i][0]) + " One Pair!!");
+			} else {
+				System.out.println("player '" + (i + 1) + "' 족보 : " + "No Pair!!");
+			}
+		}
+		return count;
+	}
+
+	void winner(int[] count) {
+		if (count[0] > count[1])
+			player = 0;
+		else if (count[0] < count[1]) {
+			player = 1;
+		} else if (count[0] == count[1]) {
+			player = countnum[0][0] > countnum[1][0] ? 0 : 1;
+		}
+
+		System.out.println();
+
+		if (count[0] == 0 && count[1] == 0)
+			System.out.println("무승부");
+		else
+			System.out.println("winner is  '" + (player + 1) + "'  player");
+	}
+}
+
+public class poker {
+	public static void main(String args[]) {
+
+		int set[] = new int[14];
+		String shape[][] = new String[2][14];
+		int num[][] = new int[2][14];
+		int count[] = new int[2];
+		int flush[] = new int[2];
+		int straight[] = new int[2];
+		int shapenum[][] = new int[2][4];
+
+		String number = "NA23456789TJQK";
+		Pockerframe pf = new Pockerframe();
+		poker card = new poker();
+
+		set = card.makeset(); // 서로 다른 임의의 수를 1차원 배열에 할당
+		num = card.allocset(set); // 카드패 부여
+
+		for (int i = 0; i < 2; i++) {
+			for (int i1 = 0; i1 < 7; i1++)
+				System.out.print(num[i][i1] + "  ");
+			System.out.println();
+		}
+
+		shapenum = card.makeshape(num); // 카드패 모양 부여, shapenum=같은 모양수 측정
+		shape = card.returnshape(); // 카드패 모양 리턴
+		num = card.makenum(num); // 카드패 숫자 부여
+		card.arrayset(num); // 카드패 순차정렬
+
+		for (int i = 0; i < 2; i++) {
+			System.out.println();
+			System.out.println("player '" + (i + 1) + "' cardset : ");
+			for (int i1 = 0; i1 < 7; i1++)
+				System.out.print(shape[i][i1] + ". " + number.charAt(num[i][i1]) + "  ");
+			System.out.println();
+		}
+
+		System.out.println();
+
+		count = card.countset(num); // 페어수 측정
+		flush = card.flushcheck(shapenum); // 플러쉬 여부 판정
+		straight = card.straightcheck(num); // 스트레이트 여부 판정
+		card.result(count, straight, flush); // 카운트, 스트레이트, 플러쉬 여부로 족보매치
+		card.winner(count); // 카운트를 비교하여 승자판정
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

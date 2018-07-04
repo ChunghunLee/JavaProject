@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;pack.Findnum.java&apos; to &apos;getMinSum.java&apos;&#x0D;&#x0A;- Original project: &apos;JavaExam&apos;&#x0D;&#x0A;- Original element: &apos;pack.Findnum.java&apos;&#x0D;&#x0A;- Renamed element: &apos;pack.getMinSum.java&apos;" description="Rename compilation unit &apos;Findnum.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;pack{Findnum.java" name="getMinSum.java" references="false" stamp="1513696748044" version="1.0"/>
+</session>

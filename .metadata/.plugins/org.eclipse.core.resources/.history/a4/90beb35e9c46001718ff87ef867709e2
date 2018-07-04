@@ -1,0 +1,72 @@
+	package pack;
+	import java.awt.*;
+	import java.util.Random;
+	import javax.swing.*;
+	import javax.swing.border.Border;
+
+	class Pockerframe extends JFrame {
+		poker PLO = new poker();
+		public Pockerframe() {
+
+			/* spaed A~K*/
+			final ImageIcon card0 = new ImageIcon("c:\\image\\52.jpg");
+			final ImageIcon card1 = new ImageIcon("c:\\image\\40.jpg");
+			final ImageIcon card2 = new ImageIcon("c:\\image\\41.jpg");
+			final ImageIcon card3 = new ImageIcon("c:\\image\\42.jpg");
+			final ImageIcon card4 = new ImageIcon("c:\\image\\43.jpg");
+			final ImageIcon card5 = new ImageIcon("c:\\image\\44.jpg");
+			final ImageIcon card6 = new ImageIcon("c:\\image\\45.jpg");
+			final ImageIcon card7 = new ImageIcon("c:\\image\\46.jpg");
+			final ImageIcon card8 = new ImageIcon("c:\\image\\47.jpg");
+			final ImageIcon card9 = new ImageIcon("c:\\image\\48.jpg");
+			final ImageIcon card10 = new ImageIcon("c:\\image\\49.jpg");
+			final ImageIcon card11 = new ImageIcon("c:\\image\\50.jpg");
+			final ImageIcon card12 = new ImageIcon("c:\\image\\51.jpg");
+
+			/* diamond A~K */
+
+			final ImageIcon card13 = new ImageIcon("c:\\image\\26.jpg");
+			final ImageIcon card14 = new ImageIcon("c:\\image\\14.jpg");
+			final ImageIcon card15 = new ImageIcon("c:\\image\\15.jpg");
+			final ImageIcon card16 = new ImageIcon("c:\\image\\16.jpg");
+			final ImageIcon card17 = new ImageIcon("c:\\image\\17.jpg");
+			final ImageIcon card18 = new ImageIcon("c:\\image\\18.jpg");
+			final ImageIcon card19 = new ImageIcon("c:\\image\\19.jpg");
+			final ImageIcon card20 = new ImageIcon("c:\\image\\20.jpg");
+			final ImageIcon card21 = new ImageIcon("c:\\image\\21.jpg");
+			final ImageIcon card22 = new ImageIcon("c:\\image\\22.jpg");
+			final ImageIcon card23 = new ImageIcon("c:\\image\\23.jpg");
+			final ImageIcon card24 = new ImageIcon("c:\\image\\24.jpg");
+			final ImageIcon card25 = new ImageIcon("c:\\image\\25.jpg");
+
+			/* heart A~K */
+
+			final ImageIcon card26 = new ImageIcon("c:\\image\\39.jpg");
+			final ImageIcon card27 = new ImageIcon("c:\\image\\27.jpg");
+			final ImageIcon card28 = new ImageIcon("c:\\image\\28.jpg");
+			final ImageIcon card29 = new ImageIcon("c:\\image\\29.jpg");
+			final ImageIcon card30 = new ImageIcon("c:\\image\\30.jpg");
+			final ImageIcon card31 = new ImageIcon("c:\\image\\31.jpg");
+			final ImageIcon card32 = new ImageIcon("c:\\image\\32.jpg");
+			final ImageIcon card33 = new ImageIcon("c:\\image\\33.jpg");
+			final ImageIcon card34 = new ImageIcon("c:\\image\\34.jpg");
+			final ImageIcon card35 = new ImageIcon("c:\\image\\35.jpg");
+			final ImageIcon card36 = new ImageIcon("c:\\image\\36.jpg");
+			final ImageIcon card37 = new ImageIcon("c:\\image\\37.jpg");
+			final ImageIcon card38 = new ImageIcon("c:\\image\\38.jpg");
+
+			/* club A~K */
+
+			final ImageIcon card39 = new ImageIcon("c:\\image\\13.jpg");
+			final ImageIcon card40 = new ImageIcon("c:\\image\\1.jpg");
+			final ImageIcon card41 = new ImageIcon("c:\\image\\2.jpg");
+			final ImageIcon card42 = new ImageIcon("c:\\image\\3.jpg");
+			final ImageIcon card43 = new ImageIcon("c:\\image\\4.jpg");
+			final ImageIcon card44 = new ImageIcon("c:\\image\\5.jpg");
+			final ImageIcon card45 = new ImageIcon("c:\\image\\6.jpg");
+			final ImageIcon card46 = new ImageIcon("c:\\image\\7.jpg");
+			final ImageIcon card47 = new ImageIcon("c:\\image\\8.jpg");
+			final ImageIcon card48 = new ImageIcon("c:\\image\\9.jpg");
+			final ImageIcon card49 = new ImageIcon("c:\\image\\10.jpg");
+			final ImageIcon card50 = new ImageIcon("c:\\image\\11.jpg");
+			final ImageIcon card51 = new ImageIcon("c:\\image\\12.jpg");	

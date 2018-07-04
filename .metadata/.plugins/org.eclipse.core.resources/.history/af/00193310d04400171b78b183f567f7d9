@@ -1,0 +1,417 @@
+package pack;
+
+import java.awt.*;
+
+import javax.swing.*;
+
+import javax.swing.border.Border;
+
+class Pockerframe extends JFrame {
+
+	private JLabel pl1 = new JLabel("Player '1' : ");
+
+	private JLabel pl2 = new JLabel("Player '2' : ");
+
+	public Pockerframe() {
+
+		Image img = new ImageIcon().getImage();
+
+		setSize(1500, 1000);
+
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+		setTitle("Poker Game");
+
+		Border bln, ber, bel, bbr, bbl; // 테두리
+
+		bln = BorderFactory.createLineBorder(Color.BLACK); // 테두리 색
+
+		Container cp = getContentPane();
+
+		cp.setBackground(Color.lightGray);
+
+		cp.setLayout(new BorderLayout());
+
+		/* spade A~K 각 카드번호에 image 지정 */
+
+		final ImageIcon card0 = new ImageIcon("c:\\image\\52.jpg");
+
+		final ImageIcon card1 = new ImageIcon("c:\\image\\40.jpg");
+
+		final ImageIcon card2 = new ImageIcon("c:\\image\\41.jpg");
+
+		final ImageIcon card3 = new ImageIcon("c:\\image\\42.jpg");
+
+		final ImageIcon card4 = new ImageIcon("c:\\image\\43.jpg");
+
+		final ImageIcon card5 = new ImageIcon("c:\\image\\44.jpg");
+
+		final ImageIcon card6 = new ImageIcon("c:\\image\\45.jpg");
+
+		final ImageIcon card7 = new ImageIcon("c:\\image\\46.jpg");
+
+		final ImageIcon card8 = new ImageIcon("c:\\image\\47.jpg");
+
+		final ImageIcon card9 = new ImageIcon("c:\\image\\48.jpg");
+
+		final ImageIcon card10 = new ImageIcon("c:\\image\\49.jpg");
+
+		final ImageIcon card11 = new ImageIcon("c:\\image\\50.jpg");
+
+		final ImageIcon card12 = new ImageIcon("c:\\image\\51.jpg");
+
+		/* diamond A~K */
+
+		final ImageIcon card13 = new ImageIcon("c:\\image\\26.jpg");
+
+		final ImageIcon card14 = new ImageIcon("c:\\image\\14.jpg");
+
+		final ImageIcon card15 = new ImageIcon("c:\\image\\15.jpg");
+
+		final ImageIcon card16 = new ImageIcon("c:\\image\\16.jpg");
+
+		final ImageIcon card17 = new ImageIcon("c:\\image\\17.jpg");
+
+		final ImageIcon card18 = new ImageIcon("c:\\image\\18.jpg");
+
+		final ImageIcon card19 = new ImageIcon("c:\\image\\19.jpg");
+
+		final ImageIcon card20 = new ImageIcon("c:\\image\\20.jpg");
+
+		final ImageIcon card21 = new ImageIcon("c:\\image\\21.jpg");
+
+		final ImageIcon card22 = new ImageIcon("c:\\image\\22.jpg");
+
+		final ImageIcon card23 = new ImageIcon("c:\\image\\23.jpg");
+
+		final ImageIcon card24 = new ImageIcon("c:\\image\\24.jpg");
+
+		final ImageIcon card25 = new ImageIcon("c:\\image\\25.jpg");
+
+		/* heart A~K */
+
+		final ImageIcon card26 = new ImageIcon("c:\\image\\39.jpg");
+
+		final ImageIcon card27 = new ImageIcon("c:\\image\\27.jpg");
+
+		final ImageIcon card28 = new ImageIcon("c:\\image\\28.jpg");
+
+		final ImageIcon card29 = new ImageIcon("c:\\image\\29.jpg");
+
+		final ImageIcon card30 = new ImageIcon("c:\\image\\30.jpg");
+
+		final ImageIcon card31 = new ImageIcon("c:\\image\\31.jpg");
+
+		final ImageIcon card32 = new ImageIcon("c:\\image\\32.jpg");
+
+		final ImageIcon card33 = new ImageIcon("c:\\image\\33.jpg");
+
+		final ImageIcon card34 = new ImageIcon("c:\\image\\34.jpg");
+
+		final ImageIcon card35 = new ImageIcon("c:\\image\\35.jpg");
+
+		final ImageIcon card36 = new ImageIcon("c:\\image\\36.jpg");
+
+		final ImageIcon card37 = new ImageIcon("c:\\image\\37.jpg");
+
+		final ImageIcon card38 = new ImageIcon("c:\\image\\38.jpg");
+
+		/* club A~K */
+
+		final ImageIcon card39 = new ImageIcon("c:\\image\\13.jpg");
+
+		final ImageIcon card40 = new ImageIcon("c:\\image\\1.jpg");
+
+		final ImageIcon card41 = new ImageIcon("c:\\image\\2.jpg");
+
+		final ImageIcon card42 = new ImageIcon("c:\\image\\3.jpg");
+
+		final ImageIcon card43 = new ImageIcon("c:\\image\\4.jpg");
+
+		final ImageIcon card44 = new ImageIcon("c:\\image\\5.jpg");
+
+		final ImageIcon card45 = new ImageIcon("c:\\image\\6.jpg");
+
+		final ImageIcon card46 = new ImageIcon("c:\\image\\7.jpg");
+
+		final ImageIcon card47 = new ImageIcon("c:\\image\\8.jpg");
+
+		final ImageIcon card48 = new ImageIcon("c:\\image\\9.jpg");
+
+		final ImageIcon card49 = new ImageIcon("c:\\image\\10.jpg");
+
+		final ImageIcon card50 = new ImageIcon("c:\\image\\11.jpg");
+
+		final ImageIcon card51 = new ImageIcon("c:\\image\\12.jpg");
+
+		/*
+		 * 
+		 * for(int i=0;i<14;i++) for(int i1=0;i1<2;i1++) if(pk.num[i][i1]){
+		 * 
+		 * 
+		 * 
+		 * }
+		 * 
+		 */
+
+		JPanel cd1 = new JPanel() { // cd1 패널객체 생성
+
+			public void paint(Graphics g) { // g라는 그래픽변수를 받는 paint 메소드
+
+				g.drawImage(card0.getImage(), 0, 0, null); // 이미지를 받아 card 출력
+
+				setOpaque(false);
+
+				super.paint(g);
+
+			}
+
+		};
+
+		cd1.setBounds(50, 100, 180, 170); //
+
+		add(cd1);
+
+		JPanel cd2 = new JPanel() { // cd1 패널객체 생성
+
+			public void paint(Graphics g) { // g라는 그래픽변수를 받는 paint 메소드
+
+				g.drawImage(card1.getImage(), 0, 0, null); // 이미지를 받아 card 출력
+
+				setOpaque(false);
+
+				super.paint(g);
+
+			}
+
+		};
+
+		cd2.setBounds(200, 100, 180, 170);
+
+		add(cd2);
+
+		JPanel cd3 = new JPanel() { // cd1 패널객체 생성
+
+			public void paint(Graphics g) { // g라는 그래픽변수를 받는 paint 메소드
+
+				g.drawImage(card48.getImage(), 0, 0, null); // 이미지를 받아 card 출력
+
+				setOpaque(false);
+
+				super.paint(g);
+
+			}
+
+		};
+
+		cd3.setBounds(350, 100, 180, 170); //
+
+		add(cd3);
+
+		JPanel cd4 = new JPanel() { // cd1 패널객체 생성
+
+			public void paint(Graphics g) { // g라는 그래픽변수를 받는 paint 메소드
+
+				g.drawImage(card21.getImage(), 0, 0, null); // 이미지를 받아 card 출력
+
+				setOpaque(false);
+
+				super.paint(g);
+
+			}
+
+		};
+
+		cd4.setBounds(500, 100, 180, 170); //
+
+		add(cd4);
+
+		JPanel cd5 = new JPanel() { // cd1 패널객체 생성
+
+			public void paint(Graphics g) { // g라는 그래픽변수를 받는 paint 메소드
+
+				g.drawImage(card17.getImage(), 0, 0, null); // 이미지를 받아 card 출력
+
+				setOpaque(false);
+
+				super.paint(g);
+
+			}
+
+		};
+
+		cd5.setBounds(650, 100, 180, 170); //
+
+		add(cd5);
+
+		JPanel cd6 = new JPanel() { // cd1 패널객체 생성
+
+			public void paint(Graphics g) { // g라는 그래픽변수를 받는 paint 메소드
+
+				g.drawImage(card8.getImage(), 0, 0, null); // 이미지를 받아 card 출력
+
+				setOpaque(false);
+
+				super.paint(g);
+
+			}
+
+		};
+
+		cd6.setBounds(800, 100, 180, 170); //
+
+		add(cd6);
+
+		JPanel cd7 = new JPanel() { // cd1 패널객체 생성
+
+			public void paint(Graphics g) { // g라는 그래픽변수를 받는 paint 메소드
+
+				g.drawImage(card22.getImage(), 0, 0, null); // 이미지를 받아 card 출력
+
+				setOpaque(false);
+
+				super.paint(g);
+
+			}
+
+		};
+
+		cd7.setBounds(950, 100, 180, 170); //
+
+		add(cd7);
+
+		JPanel cd8 = new JPanel() { // cd1 패널객체 생성
+
+			public void paint(Graphics g) { // g라는 그래픽변수를 받는 paint 메소드
+
+				g.drawImage(card5.getImage(), 0, 0, null); // 이미지를 받아 card 출력
+
+				setOpaque(false);
+
+				super.paint(g);
+
+			}
+
+		};
+
+		cd8.setBounds(50, 500, 180, 170); //
+
+		add(cd8);
+
+		JPanel cd9 = new JPanel() { // cd1 패널객체 생성
+
+			public void paint(Graphics g) { // g라는 그래픽변수를 받는 paint 메소드
+
+				g.drawImage(card18.getImage(), 0, 0, null); // 이미지를 받아 card 출력
+
+				setOpaque(false);
+
+				super.paint(g);
+
+			}
+
+		};
+
+		cd9.setBounds(200, 500, 180, 170); //
+
+		add(cd9);
+
+		JPanel cd10 = new JPanel() { // cd1 패널객체 생성
+
+			public void paint(Graphics g) { // g라는 그래픽변수를 받는 paint 메소드
+
+				g.drawImage(card20.getImage(), 0, 0, null); // 이미지를 받아 card 출력
+
+				setOpaque(false);
+
+				super.paint(g);
+
+			}
+
+		};
+
+		cd10.setBounds(350, 500, 180, 170); //
+
+		add(cd10);
+
+		JPanel cd11 = new JPanel() { // cd1 패널객체 생성
+
+			public void paint(Graphics g) { // g라는 그래픽변수를 받는 paint 메소드
+
+				g.drawImage(card33.getImage(), 0, 0, null); // 이미지를 받아 card 출력
+
+				setOpaque(false);
+
+				super.paint(g);
+
+			}
+
+		};
+
+		cd11.setBounds(500, 500, 180, 170); //
+
+		add(cd11);
+
+		JPanel cd12 = new JPanel() { // cd1 패널객체 생성
+
+			public void paint(Graphics g) { // g라는 그래픽변수를 받는 paint 메소드
+
+				g.drawImage(card44.getImage(), 0, 0, null); // 이미지를 받아 card 출력
+
+				setOpaque(false);
+
+				super.paint(g);
+
+			}
+
+		};
+
+		cd12.setBounds(650, 500, 180, 170); //
+
+		add(cd12);
+
+		JPanel cd13 = new JPanel() { // cd1 패널객체 생성
+
+			public void paint(Graphics g) { // g라는 그래픽변수를 받는 paint 메소드
+
+				g.drawImage(card50.getImage(), 0, 0, null); // 이미지를 받아 card 출력
+
+				setOpaque(false);
+
+				super.paint(g);
+
+			}
+
+		};
+
+		cd13.setBounds(800, 500, 180, 170); //
+
+		add(cd13);
+
+		JPanel cd14 = new JPanel() { // cd1 패널객체 생성
+
+			public void paint(Graphics g) { // g라는 그래픽변수를 받는 paint 메소드
+
+				g.drawImage(card30.getImage(), 0, 0, null); // 이미지를 받아 card 출력
+
+				setOpaque(false);
+
+				super.paint(g);
+
+			}
+
+		};
+
+		cd14.setBounds(900, 500, 180, 170); //
+
+		add(cd14);
+
+		cp.add(new JButton("카드 받아오기"), BorderLayout.NORTH);
+
+		cp.add(new JButton("결과 보기"), BorderLayout.SOUTH); 
+
+		setVisible(true);
+
+	}
+
+}

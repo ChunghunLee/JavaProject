@@ -1,0 +1,52 @@
+package pack;
+
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.border.Border;
+
+class Pockerframe extends JFrame {
+	poker PLO = new poker();
+
+	public Pockerframe() {
+		Image img = new ImageIcon().getImage();
+		setSize(1500, 1000);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setTitle("Poker Game");
+		Border bln, ber, bel, bbr, bbl; // 테두리
+		bln = BorderFactory.createLineBorder(Color.BLACK); // 테두리 색
+
+		Container cp = getContentPane();
+		cp.setBackground(Color.lightGray);
+		cp.setLayout(null);
+
+		/* spade A~K 각 카드번호에 image 지정 */
+		Image[] Card;
+		Card = new Image[51];
+
+		for (int i = 0; i < Card.length; ++i) {
+			Card[i] = new ImageIcon("c:\\image\\" + i + ".jpg)").getImage();
+		}
+
+		Graphics buffg;
+		Image buffImage;
+
+		JPanel cd1 = new JPanel() { // cd1 패널객체 생성
+			public void paint(Graphics g) { // g라는 그래픽변수를 받는 paint 메소드
+				buffImage = createImage(100, 100);
+				buffg = buffImage.getGraphics();
+				
+				for (int k = 0; k < 51; k++) { // 카드 고유값 0~51 돌면서
+					if (PLO.num[0][0] == k) { // 플레이어가 갖고있는 카드1번호가 k와 같으면
+						buffg.drawImage((Card[k]), 0, 0, null); // k에 해당하는 이미지를 받아
+															// card 출력
+						setOpaque(false);
+						super.paint(g);
+					}
+				}
+				cd1.setBounds(50, 100, 180, 170); //
+				add(cd1);
+			}
+		};
+		setVisible(true);
+	}
+}

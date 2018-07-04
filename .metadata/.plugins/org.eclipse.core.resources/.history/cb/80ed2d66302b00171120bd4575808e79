@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Charreverse {
+
+	public static void main(String[] args) {
+		  Scanner stdin = new Scanner(System.in);
+		  
+		  System.out.print("문자열을 입력 : ");
+		  String str = stdin.nextLine();
+		  
+		  str.charAt(0);
+		  
+		  int i=str.length();
+		  for(;i-1>=0;i--){
+		   
+		  System.out.println(str.substring(i-1,i));
+		  
+		 }
+		  
+		  int num1[] = new int[5];
+		  
+		  for(int k=1;k<5;k++){
+			  num1[k] += num1[k];
+	}
+		  for(int l: num1)
+			  System.out.println(l+" ");
+		}
+}
+
